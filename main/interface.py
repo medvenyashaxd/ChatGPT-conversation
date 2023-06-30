@@ -30,7 +30,6 @@ class ChatGPTFrame(customtkinter.CTkFrame):
             if event.state != 1:
                 input_text = self.input_box.get('1.0', 'end')
                 threading.Thread(target=self.process_request, args=(input_text,)).start()
-                print(self.out_box.get('1.0', 'end').replace('\n', ''))
                 out_box_text = self.out_box.get('1.0', 'end').replace('\n', '')
                 if out_box_text in OUT_BOX_TEXT or out_box_text == '':
                     self.out_box.delete('1.0', 'end')
@@ -68,8 +67,9 @@ class ChatGPTFrame(customtkinter.CTkFrame):
             self.input_box.configure(text_color='#97999c')
 
     def process_request(self, input_text):
+        answer_text = ''
         chat = ConversationGPT(input_text)
-        answer_text = chat.post_text_gpt()
+        answer_text += str(chat.post_text_gpt())
         self.out_box.insert('end', answer_text + '\n\n')
         self.out_box.see("end")
 
