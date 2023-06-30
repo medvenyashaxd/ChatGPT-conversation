@@ -21,7 +21,6 @@ class ConversationGPT:
                     set_json_data = response.json()
                     get_json_data = set_json_data['choices'][0]['message']['content']
                     if not get_json_data == 'None':
-                        print('Chat gpt says: ' + get_json_data + '\n')
                         return get_json_data
                     else:
                         count_backup = count_backup - 1
