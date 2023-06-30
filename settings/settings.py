@@ -1,3 +1,5 @@
+import os
+
 MAIN_URL = 'https://api.openai.com/v1/chat/completions'
 OUT_BOX_TEXT = 'Приветствую! Я являюсь искусственным интеллектом, созданным OpenAI. Я обладаю способностью ' \
                'обрабатывать естественный язык и отвечать на вопросы, используя машинное обучение и глубокие ' \
@@ -26,3 +28,5 @@ WIDTH = 600
 HEIGHT = 750
 X = 700
 Y = 150
+
+ICON_PATH = os.path.join(os.path.dirname(__file__), '..', 'icon', 'GPT.ico')

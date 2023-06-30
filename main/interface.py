@@ -1,8 +1,7 @@
-import os
 import threading
 import customtkinter
 from PIL import Image
-from settings.settings import OUT_BOX_TEXT, HEIGHT, WIDTH, X, Y
+from settings.settings import OUT_BOX_TEXT, HEIGHT, WIDTH, X, Y, ICON_PATH
 from chatGPT_conversation import ConversationGPT
 
 customtkinter.set_appearance_mode('Dark')
@@ -79,7 +78,7 @@ class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
         self.title('ChatGPT')
-        self.logo = customtkinter.CTkImage(Image.open('../icon/GPT.ico'))
+        self.logo = customtkinter.CTkImage(Image.open(ICON_PATH))
         self.grid_columnconfigure(0, weight=1)
         self.my_frame = ChatGPTFrame(master=self, corner_radius=0, fg_color="transparent")
         self.my_frame.grid(sticky="nsew")
@@ -92,7 +91,7 @@ class App(customtkinter.CTk):
 
 if __name__ == '__main__':
     app = App()
-    app.iconbitmap(os.path.join(os.path.dirname(__file__), '..', 'icon', 'GPT.ico'))
+    app.iconbitmap(ICON_PATH)
     app.geometry(f"{WIDTH}x{HEIGHT}+{X}+{Y}")
     app.resizable(False, False)
     app.mainloop()
