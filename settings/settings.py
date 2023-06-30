@@ -20,3 +20,9 @@ def get_header(api_key):
         "Authorization": f"Bearer {api_key}",
     }
     return header_data
+
+
+WIDTH = 600
+HEIGHT = 750
+X = 700
+Y = 150
