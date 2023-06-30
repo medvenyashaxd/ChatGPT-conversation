@@ -2,7 +2,7 @@ import threading
 import customtkinter
 from PIL import Image
 from settings.settings import OUT_BOX_TEXT
-from main.chatGPT_conversation import ConversationGPT
+from chatGPT_conversation import ConversationGPT
 
 customtkinter.set_appearance_mode('Dark')
 customtkinter.set_default_color_theme('dark-blue')
