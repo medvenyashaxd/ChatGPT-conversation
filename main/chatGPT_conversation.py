@@ -16,6 +16,7 @@ class ConversationGPT:
                                      headers=get_header(API_KEY),
                                      json=get_gson(self.text)
                                      )
+            print(response.status_code, response.reason)
             if response.status_code == 200:
                 try:
                     set_json_data = response.json()
