@@ -26,10 +26,11 @@ class ChatGPTFrame(customtkinter.CTkFrame):
 
     def handle_key(self, event):
         ctrl = (event.state & 0x4) != 0
+        shift = (event.state & 0x1) != 0
         if event.keysym == "Return":
-            if event.state != 1:
+            if event.state != 1 and not shift and not ctrl:
                 input_text = self.input_box.get('1.0', 'end')
-                threading.Thread(target=self.process_request, args=(input_text,)).start()
+                # threading.Thread(target=self.process_request, args=(input_text,)).start()
                 out_box_text = self.out_box.get('1.0', 'end').replace('\n', '')
                 if out_box_text in OUT_BOX_TEXT or out_box_text == '':
                     self.out_box.delete('1.0', 'end')
